@@ -8,6 +8,14 @@ services:
   # This line maps the contents of the client folder into the container.
       volumes:
         - ./client:/usr/src/app
+ # Build the container jenkins
+  jenkins:
+    image: "jenkins:2.19.2"
+    ports:
+      - "49001:8080"
+    restart: "always"
+    volumes:
+      - /var/jenkins_home
         
   # Build the container using the nginx Dockerfile
   nginx:
